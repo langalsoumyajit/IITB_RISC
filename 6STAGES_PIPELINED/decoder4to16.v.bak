@@ -1,0 +1,4 @@
+module decoder4to16(inp,outp);
+input [3:0] inp;
+output [15:0] outp;
+

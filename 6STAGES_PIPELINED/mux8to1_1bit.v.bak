@@ -1,0 +1,8 @@
+module mux8to1_1bit(out_data,in_data,select);
+input [8:0]in_data;
+input [2:0] select;
+output out_data;
+
+assign out_data = in_data[select];
+
+endmodule 

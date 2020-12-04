@@ -1,0 +1,9 @@
+module Forward_Controller
+(
+mux_controller,
+
+src1_RF_EX,
+src2_RF_EX,
+dest_EX_M,
+dest_M_WB
+);

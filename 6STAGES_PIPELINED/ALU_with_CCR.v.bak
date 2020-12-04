@@ -1,0 +1,4 @@
+module ALU_with_CCR(
+out_alu, carry_out, zero_out, ccr_enable, bus_a, bus_b, carry_in, zero_in, alu_control,
+, enable, clock, reset
+);

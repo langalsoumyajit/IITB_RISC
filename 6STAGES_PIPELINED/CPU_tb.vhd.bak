@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity CPU_tb is
+end entity;
+
+architecture bhv of CPU_tb is
+component CPU is
+	port (clock,reset : in std_logic);
+end component;
+
+	SIGNAL clock : STD_LOGIC := '0' ;
+	SIGNAL reset : STD_LOGIC := '1' ;
+	CONSTANT CLK_PERIOD : TIME := 20 NS ;
+
+begin
+PROCESS 
+	BEGIN
+		WAIT FOR CLK_PERIOD/2 ;
+		Clock <= NOT Clock ;
+		RESET <='0' AFTER 60 ns ;
+		A<="01010101";
+		B<="10101010";
+	END PROCESS ;
+end bhv;

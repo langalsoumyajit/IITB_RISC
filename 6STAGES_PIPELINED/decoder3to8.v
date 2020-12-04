@@ -1,0 +1,30 @@
+module decoder3to8(outp,inp,enable);
+input [2:0]inp;
+input enable;
+output reg [7:0]outp;
+
+// assign outp[inp] = enable;
+
+
+always @(inp,enable)  
+	begin  
+		if(enable == 1'b1)
+		begin
+			case (inp)  
+				3'b000 : outp <= 8'b00000001;  
+				3'b001 : outp <= 8'b00000010;  
+				3'b010 : outp <= 8'b00000100;   
+				3'b011 : outp <= 8'b00001000;    
+				3'b100 : outp <= 8'b00010000;    
+				3'b101 : outp <= 8'b00100000;    
+				3'b110 : outp <= 8'b01000000;   
+				3'b111 : outp <= 8'b10000000;    
+				
+		 endcase  
+		end
+		
+		else
+			outp <= 8'b0;
+  end  
+endmodule
+

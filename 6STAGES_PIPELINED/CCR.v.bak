@@ -1,0 +1,4 @@
+module CCR(carry_out, zero_out, carry_in, zero_in);
+output reg carry_out, zero_out;
+input carry_in, zero_in;
+

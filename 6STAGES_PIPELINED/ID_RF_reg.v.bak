@@ -1,0 +1,2 @@
+module ID_RF_reg(write_back_out,memory_out,PC_out);
+endmodule

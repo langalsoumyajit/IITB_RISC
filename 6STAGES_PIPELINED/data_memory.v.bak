@@ -1,0 +1,30 @@
+module data_memory(data_bus,address,rd,wr,reset,clock);
+parameter memory_size=4096,i=0;
+input [15:0]addr;
+input rd,wr,reset,clock;
+tri [15:0] data_bus;
+wire [15:0] data_in,dat_out;
+reg [15:0] mem[memory_size-1:0];//declaring memory location,each 16 bits
+
+always@(addr,rd,wr,reset,clock)
+begin
+if (reset)
+begin
+for (i=0;i<memory_size-1;i=i+1)
+begin
+mem[i]<=4'h0000;
+end
+end
+
+   data_bus<=rd ? data_out:4'hzzzz;
+data_in<=wr ? data_bus:4'hzzzz;
+
+data_out<=mem[addr];
+
+if (wr)
+mem[address]<=data_in;
+
+end // end always
+endmodule 
+
+

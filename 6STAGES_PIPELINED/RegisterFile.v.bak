@@ -1,0 +1,3 @@
+module RegisterFile(data_read1, data_read2, data_write, data_read1_address, data_read2_address, data_write_address, clk, reset, reg_rd_wr);
+input [16:0] data_write
+input [2:0] 

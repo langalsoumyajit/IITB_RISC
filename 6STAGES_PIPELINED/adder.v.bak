@@ -1,0 +1,2 @@
+module adder(out_result, carry_out, input_a, input_b, carry_in);
+input [15:0] input_a,input_b;

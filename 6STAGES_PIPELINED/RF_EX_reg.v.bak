@@ -1,0 +1,67 @@
+module RF_EX_reg
+(
+PC_out_ID_RF,
+PC_plus1_out_ID_RF,
+WB_out_IF_ID,
+Memory_out_RF_ID,
+Ex_out_IF_ID,
+Instruction_out_IF_ID,
+Valid_out_IF_ID,
+
+PC_in_ID_RF,
+PC_plus1_in_ID_RF,
+WB_in_IF_ID,
+Memory_in_RF_ID,
+Ex_in_IF_ID,
+Instruction_in_IF_ID,
+Valid_in_IF_ID,
+clock,
+reset
+);
+
+output reg [15:0] PC_out_ID_RF;
+output reg [15:0] PC_plus1_out_ID_RF;
+output reg [1:0] WB_out_IF_ID;
+output reg [1:0] Memory_out_RF_ID;
+output reg [2:0] Ex_out_IF_ID;
+output reg [15:0] Instruction_out_IF_ID;
+output reg Valid_out_IF_ID;
+
+
+input [15:0] PC_in_ID_RF;
+input [15:0] PC_plus1_in_ID_RF;
+input [1:0] WB_in_IF_ID;
+input [1:0] Memory_in_RF_ID;
+input [2:0] Ex_in_IF_ID;
+input [15:0] Instruction_in_IF_ID;
+input Valid_in_IF_ID;
+input clock;
+input reset;
+
+always @(posedge clock)
+begin
+	if(! reset)
+		begin
+			PC_out_ID_RF <= PC_in_ID_RF;
+			PC_plus1_out_ID_RF <= PC_plus1_in_ID_RF;
+			WB_out_IF_ID <= WB_in_IF_ID;
+			Memory_out_RF_ID <= Memory_in_RF_ID;
+			Ex_out_IF_ID <= Ex_in_IF_ID;
+			Instruction_out_IF_ID <= Instruction_in_IF_ID;
+			Valid_out_IF_ID <= Valid_in_IF_ID;
+		end
+	else
+		begin
+		
+			PC_out_ID_RF <= 16'b0;
+			PC_plus1_out_ID_RF <= 16'b0;
+			WB_out_IF_ID <= 2'b0;
+			Memory_out_RF_ID <= 2'b0;
+			Ex_out_IF_ID <= 3'b0;
+			Instruction_out_IF_ID <= 16'b0;
+			Valid_out_IF_ID <= 1'b0;
+		end
+end
+
+endmodule
+);

@@ -1,0 +1,76 @@
+module EX_M_reg
+(
+PC_plus1_out_EX_M,
+WB_out_EX_M,
+Memory_out_EX_M,
+Ex_out_EX_M,
+ALU_out,
+Zero_pad_out,
+Dest_out_EX_M,
+Valid_out_EX_M,
+
+PC_plus1_in_EX_M,
+WB_in_EX_M,
+Memory_in_EX_M,
+Ex_in_EX_M,
+RA_data_in,
+RB_data_in,
+SE16_in,
+Zero_pad_in,
+Dest_in_EX_M,
+Valid_in_EX_M,
+clock,
+reset
+);
+
+output reg [15:0] PC_plus1_out_EX_M;
+output reg [1:0] WB_out_EX_M;
+output reg [1:0] Memory_out_EX_M;
+output reg [2:0] Ex_out_EX_M;
+output reg [15:0] RA_data_out, RB_data_out, SE16_out, Zero_pad_out;
+output reg [2:0] Dest_out_EX_M;
+output reg Valid_out_EX_M;
+
+
+
+input [15:0] PC_plus1_in_EX_M;
+input [1:0] WB_in_EX_M;
+input [1:0] Memory_in_EX_M;
+input [2:0] Ex_in_EX_M;
+input [15:0] RA_data_in, RB_data_in, SE16_in, Zero_pad_in;
+input [2:0] Dest_in_EX_M;
+input Valid_in_EX_M;
+input clock;
+input reset;
+
+always @(posedge clock)
+begin
+	if(! reset)
+		begin
+			PC_plus1_out_EX_M <= PC_plus1_in_EX_M;
+			WB_out_EX_M <= WB_in_EX_M;
+			Memory_out_EX_M <= Memory_in_EX_M;
+			Ex_out_EX_M <= Ex_in_EX_M;
+			RA_data_out <= RA_data_in;
+			RB_data_out <= RB_data_in;
+			SE16_out <= SE16_in;
+			Zero_pad_out <= Zero_pad_in;
+			Dest_out_EX_M <= Dest_in_EX_M;
+			Valid_out_EX_M <= Valid_in_EX_M;
+		end
+	else
+		begin
+			PC_plus1_out_EX_M <= 16'b0;
+			WB_out_EX_M <= 2'b0;
+			Memory_out_EX_M <= 2'b0;
+			Ex_out_EX_M <= 3'b0;
+			RA_data_out <= 16'b0;
+			RB_data_out <= 16'b0;
+			SE16_out <= 16'b0;
+			Zero_pad_out <= 16'b0;
+			Dest_out_EX_M <= 3'b0;
+			Valid_out_EX_M <= 1'b0;
+		end
+end
+
+endmodule
