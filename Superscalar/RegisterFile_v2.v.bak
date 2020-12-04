@@ -1,0 +1,23 @@
+module RegisterFile_v2
+(data_read0, 
+data_read1,
+data_read2, 
+data_read3, 
+data_write0, 
+data_write1, 
+data_read0_address, 
+data_read1_address,
+data_read2_address, 
+data_read3_address, 
+data_write0_address, 
+data_write1_address, 
+clock, 
+reset, 
+reg_write_enable0,
+reg_write_enable1);
+
+input [15:0] data_write0, data_write1;
+input [2:0] data_read0_address, data_read1_address, data_read2_address, data_read3_address, data_write0_address, data_write1_address;
+input clock, reset, reg_write_enable0, reg_write_enable1;
+output [15:0] data_read0, data_read1, data_read2, data_read3;
+wire [15:0] reg_output [7:0];
